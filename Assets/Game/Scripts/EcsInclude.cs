@@ -16,7 +16,8 @@ public class EcsInclude : MonoBehaviour
 
         _systems
             //.Add(new...
-
+            .Add(new LevelInitSystem())
+            .Add(new LevelMoveSystem())
             //.OneFrame<...
 
             .Inject(_world)
