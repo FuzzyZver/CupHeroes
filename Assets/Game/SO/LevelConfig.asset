@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
   WavesCount: 6
-  LevelMoveTime: 10000
-  LevelSpeed: 0.05
+  LevelMoveTime: 100
+  LevelSpeed: 5
   Background: {fileID: 1442035865896250095, guid: b4670839e531a164596a613c36d373b7, type: 3}

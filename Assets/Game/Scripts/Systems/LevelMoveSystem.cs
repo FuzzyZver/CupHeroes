@@ -23,7 +23,7 @@ public class LevelMoveSystem: Injects, IEcsInitSystem, IEcsRunSystem
         var player = SceneData.PlayerOnScene.GetEntity();
         if (player.Has<PlayerMoveFlag>())
         {
-            if(_levelMoveTime != 0)
+            if(_levelMoveTime > 0)
             {
                 foreach(Transform bg in _bgTransform)
                 {
@@ -38,10 +38,11 @@ public class LevelMoveSystem: Injects, IEcsInitSystem, IEcsRunSystem
                 }
                 _levelMoveTime--;
             }
-            else
+            else if (_levelMoveTime <= 0)
             {
                 _levelMoveTime = GameConfig.LevelConfig.LevelMoveTime;
                 player.Del<PlayerMoveFlag>();
+                EcsWorld.NewEntity().Get<ChangeMotionEvent>();
             }
         }
     }

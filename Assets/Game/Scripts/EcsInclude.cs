@@ -18,7 +18,12 @@ public class EcsInclude : MonoBehaviour
             //.Add(new...
             .Add(new LevelInitSystem())
             .Add(new LevelMoveSystem())
+            .Add(new ChangeMotionSystem())
             //.OneFrame<...
+            .OneFrame<ChangeMotionEvent>()
+            .OneFrame<PlayerMotionEvent>()
+            .OneFrame<EnemiesMotionEvent>()
+            .OneFrame<EndBattleEvent>()
 
             .Inject(_world)
             .Inject(_gameConfig)
